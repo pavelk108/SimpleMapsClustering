@@ -75,12 +75,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //set listener to refresh clusters after move
         mMap.setOnCameraIdleListener(clusterManager);
 
-
-
         clusterManager.cluster();
-        // Add a marker in Sydney and move the camera
+
+        // move the camera in Moscow
         LatLng base_pos = new LatLng(base_lat, base_lon);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(base_pos));
+
+        //add markers (no clustering by default)
         for (CarMarker marker : arrCarMarker){
             mMap.addMarker(new MarkerOptions().position(marker.getPosition()));
         }
